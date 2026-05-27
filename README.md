@@ -14,7 +14,7 @@ PIRATE is designed to improve the consistency and comparability of fluorescence 
 
 | Raw image | PIRATE output |
 | --- | --- |
-| ![Raw image](examples/RAW.png) | ![PIRATE output](examples/PIRATE_output.png) |
+| ![Raw image](examples/RAW.png) | ![PIRATE output](examples/APN.png) |
 
 ## Features
 
