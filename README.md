@@ -1,12 +1,12 @@
-﻿# PIRATE
+# PIRATE
 
-PIRATE is an ImageJ/Fiji plugin for quantitative fluorescence intensity standardization in biological imaging. It provides a graphical interface for Max, Min-Max, Percentile, and PIRATE normalization workflows, with support for single images and image stacks.
+PIRATE is an ImageJ/Fiji plugin for quantitative fluorescence intensity standardization in biological fluorescence imaging. It provides an easy-to-use graphical interface for intensity normalization of single images and image stacks, supporting Max, Min-Max, Percentile, and PIRATE normalization workflows.
 
-> This repository is the renamed and updated open-source release of the earlier APN plugin project.
+PIRATE is designed to improve the consistency and comparability of fluorescence intensity distributions across images, especially in workflows where intensity variation, background fluctuation, or photon-limited acquisition conditions affect downstream visualization and quantitative analysis.
 
 ## Preview
 
-### GUI
+### Graphical User Interface
 
 ![PIRATE GUI](examples/GUI.png)
 
@@ -14,15 +14,20 @@ PIRATE is an ImageJ/Fiji plugin for quantitative fluorescence intensity standard
 
 | Raw image | PIRATE output |
 | --- | --- |
-| ![Raw image](examples/RAW.png) | ![PIRATE output](examples/APN.png) |
+| ![Raw image](examples/RAW.png) | ![PIRATE output](examples/PIRATE_output.png) |
 
 ## Features
 
-- ImageJ/Fiji plugin with a Swing-based graphical interface.
-- PIRATE adaptive patch-based normalization.
-- Baseline Max, Min-Max, and Percentile normalization modes.
-- Histogram visualization for single-image runs.
-- Stack processing using the model estimated from the first slice.
+- ImageJ/Fiji plugin with a Swing-based graphical user interface.
+- PIRATE adaptive patch-based fluorescence intensity normalization.
+- Baseline normalization modes, including:
+  - Max normalization
+  - Min-Max normalization
+  - Percentile normalization
+- Support for 8-bit, 16-bit, and 32-bit grayscale images.
+- Support for both single images and image stacks.
+- Histogram visualization for single-image normalization.
+- Stack processing using normalization parameters estimated from the first slice.
 - Bundled PIRATE logo asset for the plugin interface.
 
 ## Installation
@@ -31,14 +36,23 @@ PIRATE is an ImageJ/Fiji plugin for quantitative fluorescence intensity standard
 
 1. Copy `pirate_1.0.0.jar` into the `plugins/` folder of Fiji or ImageJ.
 2. Restart Fiji/ImageJ.
-3. Open an image and run `Plugins > PIRATE > PIRATE`.
+3. Open an image.
+4. Run the plugin from:
+
+```text
+Plugins > PIRATE > PIRATE
+```
 
 ### Option 2: Download a release JAR
 
 1. Download `pirate_1.0.0.jar` from the GitHub Releases page.
-2. Copy `pirate_1.0.0.jar` into the `plugins/` folder of Fiji or ImageJ.
+2. Copy the JAR file into the `plugins/` folder of Fiji or ImageJ.
 3. Restart Fiji/ImageJ.
-4. Open an image and run `Plugins > PIRATE > PIRATE`.
+4. Open an image and run:
+
+```text
+Plugins > PIRATE > PIRATE
+```
 
 ### Option 3: Build from source
 
@@ -48,33 +62,56 @@ Requirements:
 - Maven 3.x
 - Fiji or ImageJ
 
-Build:
+Build the project with:
 
 ```bash
 mvn clean package
 ```
 
-The plugin JAR will be created under:
+After building, the plugin JAR will be generated under:
 
 ```text
 target/pirate_1.0.0.jar
 ```
 
-Copy this JAR into the Fiji/ImageJ `plugins/` folder, then restart Fiji/ImageJ.
+Copy this JAR file into the Fiji/ImageJ `plugins/` folder, then restart Fiji/ImageJ.
 
 ## Usage
 
-1. Open an 8-bit, 16-bit, or 32-bit grayscale image or stack in Fiji/ImageJ.
-2. Run `Plugins > PIRATE > PIRATE`.
+1. Open an 8-bit, 16-bit, or 32-bit grayscale image or image stack in Fiji/ImageJ.
+2. Run:
+
+```text
+Plugins > PIRATE > PIRATE
+```
+
 3. Select a normalization mode:
-   - `PIRATE`: adaptive patch-based transform filter.
-   - `Percentile normalization`: user-defined lower and upper percentiles.
-   - `Min-Max normalization`: occupied intensity range.
-   - `Max normalization`: scale by maximum occupied intensity.
-4. Choose whether to show the histogram.
+   - `PIRATE`: adaptive patch-based fluorescence intensity normalization.
+   - `Percentile normalization`: normalization based on user-defined lower and upper percentiles.
+   - `Min-Max normalization`: normalization based on the occupied intensity range.
+   - `Max normalization`: normalization by the maximum occupied intensity.
+4. Choose whether to display the histogram.
 5. Click `START PROCESS`.
 
-For stacks, PIRATE estimates normalization parameters from the first slice and applies the resulting model to every slice.
+For image stacks, PIRATE estimates normalization parameters from the first slice and applies the resulting normalization model to all slices in the stack.
+
+## Normalization Modes
+
+### PIRATE normalization
+
+The PIRATE mode performs adaptive patch-based fluorescence intensity normalization. It is designed for biological fluorescence images where local intensity distributions may vary because of uneven illumination, background fluctuation, photon-limited acquisition, or sample-dependent signal heterogeneity.
+
+### Percentile normalization
+
+Percentile normalization rescales image intensity using user-defined lower and upper percentile thresholds. This mode is useful when extreme intensity values should be excluded from the normalization range.
+
+### Min-Max normalization
+
+Min-Max normalization rescales the occupied intensity range of the image to the output dynamic range.
+
+### Max normalization
+
+Max normalization rescales image intensity according to the maximum occupied intensity value.
 
 ## Repository Layout
 
@@ -87,27 +124,17 @@ For stacks, PIRATE estimates normalization parameters from the first slice and a
 |-- src/main/resources/pirate_logo_3x4_transparent.png
 |-- src/main/resources/1.png
 `-- examples/
+    |-- GUI.png
+    |-- RAW.png
+    `-- PIRATE_output.png
 ```
 
 ## Citation
 
-The associated paper is not yet published. If you use PIRATE before a paper or preprint is available, please cite this GitHub repository. A formal paper citation or preprint link will be added after release.
+The associated paper is not yet published.
+
+If you use PIRATE before a formal paper or preprint is available, please cite this GitHub repository. A formal paper citation or preprint link will be added after publication.
 
 ## License
 
-This project is released under the Open Data Commons Open Database License v1.0 (`ODbL-1.0`). See `LICENSE`.
-
-## Previous Project
-
-The earlier project was hosted at:
-
-```text
-https://github.com/SR-Wiki/APN
-```
-
-Use this repository for the renamed and updated PIRATE release:
-
-```text
-https://github.com/SR-Wiki/PIRATE
-```
-
+This project is released under the Open Data Commons Open Database License v1.0 (`ODbL-1.0`). See `LICENSE` for details.
