@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.srwiki</groupId>
+    <artifactId>pirate</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>PIRATE</name>
+    <description>An ImageJ/Fiji plugin for quantitative fluorescence intensity standardization.</description>
+    <url>https://github.com/SR-Wiki/PIRATE</url>
+
+    <licenses>
+        <license>
+            <name>ODC Open Database License v1.0</name>
+            <url>https://opendatacommons.org/licenses/odbl/1-0/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>IPIC</name>
+            <organization>Not specified</organization>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/SR-Wiki/PIRATE</url>
+        <connection>scm:git:https://github.com/SR-Wiki/PIRATE.git</connection>
+        <developerConnection>scm:git:git@github.com:SR-Wiki/PIRATE.git</developerConnection>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <ij.version>1.54p</ij.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>ij</artifactId>
+            <version>${ij.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>pirate_${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

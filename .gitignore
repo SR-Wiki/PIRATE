@@ -1,0 +1,44 @@
+# Build outputs
+target/
+*.class
+*.jar
+!pirate_1.0.0.jar
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local ImageJ/Fiji state
+.imagej/
+ImageJ.cfg
+plugins/.plugins
+
+# Local data and manuscript material should stay outside the source repo
+data/
+datasets/
+results/
+figures/
+manuscript/
+*.tif
+*.tiff
+*.nd2
+*.czi
+*.lif
+*.oir
+*.oib
+*.roi
+*.zip
+*.rar
+*.7z
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.opju
+*.vsdx
+
+!src/main/resources/*.png
+!examples/*.png
