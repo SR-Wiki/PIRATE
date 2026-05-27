@@ -128,13 +128,3 @@ Max normalization rescales image intensity according to the maximum occupied int
     |-- RAW.png
     `-- PIRATE_output.png
 ```
-
-## Citation
-
-The associated paper is not yet published.
-
-If you use PIRATE before a formal paper or preprint is available, please cite this GitHub repository. A formal paper citation or preprint link will be added after publication.
-
-## License
-
-This project is released under the Open Data Commons Open Database License v1.0 (`ODbL-1.0`). See `LICENSE` for details.
