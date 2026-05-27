@@ -24,11 +24,10 @@ PIRATE is designed to improve the consistency and comparability of fluorescence 
   - Max normalization
   - Min-Max normalization
   - Percentile normalization
+  - PIRATE
 - Support for 8-bit, 16-bit, and 32-bit grayscale images.
 - Support for both single images and image stacks.
 - Histogram visualization for single-image normalization.
-- Stack processing using normalization parameters estimated from the first slice.
-- Bundled PIRATE logo asset for the plugin interface.
 
 ## Installation
 
